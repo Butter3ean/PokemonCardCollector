@@ -9,6 +9,6 @@ import com.example.pokemoncardcollector.entities.Set
 
 @Database(entities = [Card::class, Set::class], version = 1)
 abstract class Database: RoomDatabase(){
-    abstract fun setDoa(): SetDao
-    abstract fun cardDoa(): CardDao
+    abstract fun setDao(): SetDao
+    abstract fun cardDao(): CardDao
 }
