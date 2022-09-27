@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PokemonCardCollector</string>
+    <string name="testing">Testing</string>
 </resources>
