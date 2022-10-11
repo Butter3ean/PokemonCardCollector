@@ -1,5 +1,6 @@
 package com.example.pokemoncardcollector.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
@@ -9,13 +10,13 @@ import com.example.pokemoncardcollector.entities.Card
 @Dao
 interface CardDao {
 
-    @Query("SELECT * FROM card")
-    fun getAll(): List<Card>
+    @Query("SELECT * FROM cards ORDER BY card_name ASC")
+    fun getAll(): LiveData<List<Card>>
 
     @Insert
-    fun insertAll(card: Card)
+    suspend fun addCard(card: Card)
 
     @Delete
-    fun delete(card: Card)
+    fun deleteCard(card: Card)
 }
 
