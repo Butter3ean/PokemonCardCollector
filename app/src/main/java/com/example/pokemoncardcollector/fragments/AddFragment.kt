@@ -66,22 +66,9 @@ class AddFragment : Fragment() {
                         var price = datum.data.tcgplayer.prices.normal?.low
                         val price1 = datum.data.tcgplayer.prices.holofoil?.low
 
-                        if(price == null) {
+                        if (price == null) {
                             price = price1
                         }
-                        println(datum.data.id)
-                        println(datum.data.name)
-                        println(datum.data.supertype)
-                        println(datum.data.level)
-                        println(datum.data.hp)
-                        println(datum.data.evolvesFrom)
-                        println(datum.data.convertedRetreatCost)
-                        println(datum.data.set.name)
-                        println(datum.data.artist)
-                        println(datum.data.rarity)
-                        println(datum.data.flavorText)
-                        println(datum.data.images.large)
-                        println(datum.data.tcgplayer.prices.normal!!.low)
 
                         val card = Card(
                             datum.data.id,
@@ -117,7 +104,6 @@ class AddFragment : Fragment() {
             }
 
         })
-
     }
 
     private fun insertDataToDatabase(card: Card) {

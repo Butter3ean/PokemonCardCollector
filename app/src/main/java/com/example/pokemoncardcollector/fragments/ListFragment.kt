@@ -12,8 +12,6 @@ import com.example.pokemoncardcollector.databinding.FragmentListBinding
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
-
-
 class ListFragment : Fragment() {
 
     private var _binding: FragmentListBinding? = null
@@ -35,7 +33,6 @@ class ListFragment : Fragment() {
         return binding.root
 
     }
-
 
 
 }
