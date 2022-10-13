@@ -14,7 +14,7 @@ import kotlinx.coroutines.launch
 //the viewModel acts as a comm center between the repo and UI
 class CardViewModel(application: Application): AndroidViewModel(application) {
 
-    private val readAll: LiveData<List<Card>>
+    val readAll: LiveData<List<Card>>
     private val repo: CardRepo
 
 
