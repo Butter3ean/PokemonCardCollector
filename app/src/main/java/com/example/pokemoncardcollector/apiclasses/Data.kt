@@ -7,7 +7,7 @@ data class Data(
     val evolvesTo: List<String>,
     val evolvesFrom: String,
     val hp: String,
-    val level: String,
+    val level: String?,
     val id: String,
     val images: Images,
     val legalities: Legalities,

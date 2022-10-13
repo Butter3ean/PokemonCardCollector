@@ -5,7 +5,8 @@ plugins {
 }
 
 android {
-    compileSdk 32
+
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.example.pokemoncardcollector"
@@ -17,6 +18,9 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    buildFeatures {
+        viewBinding = true
+    }
     buildTypes {
         release {
             minifyEnabled false
