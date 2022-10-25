@@ -1,11 +1,16 @@
 package com.example.pokemoncardcollector.fragments
 
+import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
@@ -18,15 +23,18 @@ import com.squareup.picasso.Picasso
 import kotlinx.coroutines.NonDisposableHandle.parent
 import org.w3c.dom.Text
 
-class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class ListAdapter(cardViewModel: CardViewModel): RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var cardList = emptyList<Card>()
     private val picasso: Picasso = Picasso.get()
+    val cardViewModel = cardViewModel
+
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val priceText: TextView = itemView.findViewById(R.id.tvPrice)
         val imageView: ImageView = itemView.findViewById(R.id.cardImage)
+        val gridItem: LinearLayout = itemView.findViewById(R.id.gridItem)
 
     }
 
@@ -37,14 +45,20 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         )
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
 
         val currentItem = cardList[position]
 
-        holder.priceText.append(currentItem.price.toString())
+        holder.priceText.text= "$ ${currentItem.price}"
         picasso.load(currentItem.images)
             .into(holder.imageView)
 
+        holder.gridItem.setOnLongClickListener {
+            cardViewModel.deleteCard(currentItem)
+            notifyDataSetChanged()
+            return@setOnLongClickListener true
+        }
 
     }
 
@@ -52,10 +66,16 @@ class ListAdapter: RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
         return cardList.size
     }
 
+    @SuppressLint("NotifyDataSetChanged")
     fun setData(cards: List<Card>) {
         this.cardList = cards
         notifyDataSetChanged()
     }
+
+
+
+
+
 
 }
 

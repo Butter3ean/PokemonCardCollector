@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
@@ -15,7 +14,6 @@ import com.example.pokemoncardcollector.viewmodels.CardViewModel
 
 
 class ListFragment : Fragment() {
-
     private lateinit var cardViewModel: CardViewModel
 
     private var _binding: FragmentListBinding? = null
@@ -29,12 +27,13 @@ class ListFragment : Fragment() {
         _binding = FragmentListBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
 
-        val adapter = ListAdapter()
+        cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
+
+        val adapter = ListAdapter(cardViewModel)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
         recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
 
-        cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
         cardViewModel.readAll.observe(viewLifecycleOwner) { card ->
             adapter.setData(card)
         }
