@@ -15,6 +15,6 @@ interface CardDao {
     suspend fun addCard(card: Card)
 
     @Delete
-    fun deleteCard(card: Card)
+    suspend fun deleteCard(card: Card)
 }
 

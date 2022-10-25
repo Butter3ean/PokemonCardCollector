@@ -8,12 +8,10 @@ import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import com.example.pokemoncardcollector.R
-import com.example.pokemoncardcollector.databinding.ActivityMainBinding
 import com.example.pokemoncardcollector.databinding.FragmentListBinding
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class ListFragment : Fragment() {
@@ -34,20 +32,23 @@ class ListFragment : Fragment() {
         val adapter = ListAdapter()
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
 
         cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
-        cardViewModel.readAll.observe(viewLifecycleOwner, Observer {card ->
+        cardViewModel.readAll.observe(viewLifecycleOwner) { card ->
             adapter.setData(card)
-        })
+        }
+
+
 
         binding.floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
+
+
         return binding.root
 
     }
-
 
 }

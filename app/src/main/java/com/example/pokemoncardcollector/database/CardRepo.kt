@@ -11,4 +11,8 @@ class CardRepo(private val cardDao: CardDao) {
     suspend fun addCard(card: Card) {
         cardDao.addCard(card)
     }
+
+    suspend fun deleteCard(card: Card) {
+        cardDao.deleteCard(card)
+    }
 }

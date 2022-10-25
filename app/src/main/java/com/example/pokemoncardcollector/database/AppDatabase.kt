@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.example.pokemoncardcollector.dao.CardDao
 import com.example.pokemoncardcollector.entities.Card
 
-@Database(entities = [Card::class], version = 3)
+@Database(entities = [Card::class], version = 5)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun cardDao(): CardDao
