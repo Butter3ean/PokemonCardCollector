@@ -44,6 +44,10 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
+        binding.deleteButton.setOnClickListener {
+            cardViewModel.delete()
+        }
+
 
 
         return binding.root

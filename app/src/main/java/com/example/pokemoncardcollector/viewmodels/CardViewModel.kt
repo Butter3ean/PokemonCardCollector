@@ -36,4 +36,10 @@ class CardViewModel(application: Application): AndroidViewModel(application) {
             repo.deleteCard(card)
         }
     }
+
+    fun delete() {
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.delete()
+        }
+    }
 }
