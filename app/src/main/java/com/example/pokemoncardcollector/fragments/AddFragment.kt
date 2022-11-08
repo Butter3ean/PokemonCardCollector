@@ -8,7 +8,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.pokemoncardcollector.apiclasses.CardData
+import com.example.pokemoncardcollector.Constants
+import com.example.pokemoncardcollector.retrofitstuff.CardData
 import com.example.pokemoncardcollector.apiclasses.Datum
 import com.example.pokemoncardcollector.databinding.FragmentAddBinding
 import com.example.pokemoncardcollector.entities.Card
@@ -48,7 +49,7 @@ class AddFragment : Fragment() {
 
     private fun getApiData(id: String) {
         val retrofit = Retrofit.Builder()
-            .baseUrl(BaseUrl)
+            .baseUrl(Constants.BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -74,24 +75,17 @@ class AddFragment : Fragment() {
                             datum.data.id,
                             datum.data.name,
                             datum.data.supertype,
-//                            datum.data.subtypes,
                             datum.data.level,
                             datum.data.hp,
-//                            datum.data.types,
                             datum.data.evolvesFrom,
-//                            datum.data.evolvesTo,
-//                            datum.data.rules,
-//                            datum.data.retreatCost,
                             datum.data.convertedRetreatCost,
                             datum.data.set.name,
                             datum.data.artist,
                             datum.data.rarity,
                             datum.data.flavorText,
-//                            datum.data.nationalPokedexNumbers,
                             datum.data.images.large,
                             price!!
                         )
-
                         insertDataToDatabase(card)
                     }
                 }
@@ -112,7 +106,4 @@ class AddFragment : Fragment() {
         findNavController().popBackStack()
     }
 
-    companion object {
-        var BaseUrl = "https://api.pokemontcg.io/"
-    }
 }

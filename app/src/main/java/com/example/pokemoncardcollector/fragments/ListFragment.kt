@@ -38,17 +38,17 @@ class ListFragment : Fragment() {
             adapter.setData(card)
         }
 
-
-
-        binding.floatingActionButton.setOnClickListener {
+        binding.addBtn.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
+        }
+
+        binding.cameraBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_listFragment_to_cameraFragment)
         }
 
         binding.deleteButton.setOnClickListener {
             cardViewModel.delete()
         }
-
-
 
         return binding.root
 

@@ -1,26 +1,19 @@
 package com.example.pokemoncardcollector.fragments
 
 import android.annotation.SuppressLint
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.core.content.ContentProviderCompat.requireContext
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemoncardcollector.R
-import com.example.pokemoncardcollector.dao.CardDao
 import com.example.pokemoncardcollector.entities.Card
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
 import com.squareup.picasso.Picasso
-import kotlinx.coroutines.NonDisposableHandle.parent
-import org.w3c.dom.Text
 
-class ListAdapter(private val cardViewModel: CardViewModel): RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
+class ListAdapter(private val cardViewModel: CardViewModel) :
+    RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
     private var cardList = emptyList<Card>()
     private val picasso: Picasso = Picasso.get()
@@ -42,10 +35,8 @@ class ListAdapter(private val cardViewModel: CardViewModel): RecyclerView.Adapte
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
         val currentItem = cardList[position]
-
-        holder.priceText.text= "$ ${currentItem.price}"
+        holder.priceText.text = "$ ${currentItem.price}"
         picasso.load(currentItem.images)
             .into(holder.imageView)
 
@@ -54,8 +45,6 @@ class ListAdapter(private val cardViewModel: CardViewModel): RecyclerView.Adapte
             notifyDataSetChanged()
             return@setOnLongClickListener true
         }
-
-
     }
 
     override fun getItemCount(): Int {
@@ -67,10 +56,6 @@ class ListAdapter(private val cardViewModel: CardViewModel): RecyclerView.Adapte
         this.cardList = cards
         notifyDataSetChanged()
     }
-
-
-
-
 
 
 }
