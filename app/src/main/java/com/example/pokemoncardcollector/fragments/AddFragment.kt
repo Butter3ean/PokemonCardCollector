@@ -49,7 +49,7 @@ class AddFragment : Fragment() {
 
     private fun getApiData(id: String) {
         val retrofit = Retrofit.Builder()
-            .baseUrl(Constants.BaseUrl)
+            .baseUrl(BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -104,6 +104,10 @@ class AddFragment : Fragment() {
         cardViewModel.addCard(card)
         Toast.makeText(requireContext(), "Card Added", Toast.LENGTH_SHORT).show()
         findNavController().popBackStack()
+    }
+
+    companion object {
+        var BaseUrl = "https://api.pokemontcg.io/"
     }
 
 }

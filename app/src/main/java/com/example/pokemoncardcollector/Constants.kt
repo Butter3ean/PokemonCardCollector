@@ -18,5 +18,5 @@ object Constants {
             }
         }.toTypedArray()
 
-    var BaseUrl = "https://api.pokemontcg.io/"
+
 }
