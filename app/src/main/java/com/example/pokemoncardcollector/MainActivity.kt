@@ -1,8 +1,10 @@
 package com.example.pokemoncardcollector
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.pokemoncardcollector.databinding.ActivityMainBinding
+import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 
 private lateinit var binding: ActivityMainBinding
 

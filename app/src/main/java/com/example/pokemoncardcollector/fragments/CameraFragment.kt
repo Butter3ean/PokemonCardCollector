@@ -19,11 +19,15 @@ import androidx.camera.lifecycle.ProcessCameraProvider
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
 import com.example.pokemoncardcollector.Constants
 import com.example.pokemoncardcollector.Constants.FILENAME_FORMAT
 import com.example.pokemoncardcollector.Constants.REQUEST_CODE_PERMISSIONS
 import com.example.pokemoncardcollector.Constants.REQUIRED_PERMISSIONS
+import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentCameraBinding
+import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -38,6 +42,7 @@ class CameraFragment : Fragment() {
     private var imageCapture: ImageCapture? = null
     private lateinit var cameraExecutor: ExecutorService
 
+    private val viewModel: ImageViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -113,6 +118,8 @@ class CameraFragment : Fragment() {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                     Log.d(Constants.TAG, msg)
+                    output.savedUri?.let { viewModel.selectItem(it) }
+                    findNavController().navigate(R.id.action_cameraFragment_to_imageFragment)
                 }
             }
         )

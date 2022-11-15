@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.pokemoncardcollector.Constants
 import com.example.pokemoncardcollector.retrofitstuff.CardData
 import com.example.pokemoncardcollector.apiclasses.Datum
 import com.example.pokemoncardcollector.databinding.FragmentAddBinding
