@@ -42,9 +42,9 @@ class ListFragment : Fragment() {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
-        binding.cameraBtn.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_cameraFragment)
-        }
+//        binding.cameraBtn.setOnClickListener {
+//            findNavController().navigate(R.id.action_listFragment_to_cameraFragment)
+//        }
 
         binding.deleteButton.setOnClickListener {
             cardViewModel.delete()

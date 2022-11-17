@@ -81,6 +81,7 @@ dependencies {
     implementation "androidx.camera:camera-extensions:${camerax_version}"
 
     //text recognition
+    implementation 'com.google.android.gms:play-services-vision:20.1.3'
     implementation 'com.google.android.gms:play-services-mlkit-text-recognition:18.0.2'
 
 }

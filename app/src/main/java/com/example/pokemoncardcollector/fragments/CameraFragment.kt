@@ -28,6 +28,9 @@ import com.example.pokemoncardcollector.Constants.REQUIRED_PERMISSIONS
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentCameraBinding
 import com.example.pokemoncardcollector.viewmodels.ImageViewModel
+import com.google.mlkit.vision.common.InputImage
+import com.google.mlkit.vision.text.TextRecognition
+import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
@@ -118,7 +121,8 @@ class CameraFragment : Fragment() {
                     val msg = "Photo capture succeeded: ${output.savedUri}"
                     Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
                     Log.d(Constants.TAG, msg)
-                    output.savedUri?.let { viewModel.selectItem(it) }
+                    viewModel.item = output.savedUri!!
+
                     findNavController().navigate(R.id.action_cameraFragment_to_imageFragment)
                 }
             }
