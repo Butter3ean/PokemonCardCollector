@@ -1,13 +1,18 @@
 package com.example.pokemoncardcollector.fragments
 
+import android.os.Build.VERSION_CODES.S
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.*
+import androidx.recyclerview.widget.GridLayoutManager.*
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentListBinding
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
@@ -32,7 +37,12 @@ class ListFragment : Fragment() {
         val adapter = ListAdapter(cardViewModel)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3)
+        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3,GridLayoutManager.HORIZONTAL, false)
+
+
+
+        val pageHelper = PagerSnapHelper()
+        pageHelper.attachToRecyclerView(recyclerView)
 
         cardViewModel.readAll.observe(viewLifecycleOwner) { card ->
             adapter.setData(card)
@@ -53,5 +63,18 @@ class ListFragment : Fragment() {
         return binding.root
 
     }
+
+    fun changeScrollPosition(view: RecyclerView) {
+        var dx = 0;
+
+        if(view.x > 0) {
+            dx+=10
+            view.scrollToPosition(dx)
+
+        }
+
+    }
+
+
 
 }
