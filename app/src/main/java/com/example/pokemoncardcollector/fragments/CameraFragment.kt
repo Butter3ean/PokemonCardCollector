@@ -28,9 +28,6 @@ import com.example.pokemoncardcollector.Constants.REQUIRED_PERMISSIONS
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentCameraBinding
 import com.example.pokemoncardcollector.viewmodels.ImageViewModel
-import com.google.mlkit.vision.common.InputImage
-import com.google.mlkit.vision.text.TextRecognition
-import com.google.mlkit.vision.text.latin.TextRecognizerOptions
 import java.text.SimpleDateFormat
 import java.util.*
 import java.util.concurrent.ExecutorService
