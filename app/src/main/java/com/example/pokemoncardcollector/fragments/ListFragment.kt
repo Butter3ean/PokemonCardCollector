@@ -37,8 +37,8 @@ class ListFragment : Fragment() {
         val adapter = ListAdapter(cardViewModel)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager = GridLayoutManager(requireContext(), 3,GridLayoutManager.HORIZONTAL, false)
-
+        recyclerView.layoutManager =
+            GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
 
 
         val pageHelper = PagerSnapHelper()
@@ -64,17 +64,8 @@ class ListFragment : Fragment() {
 
     }
 
-    fun changeScrollPosition(view: RecyclerView) {
-        var dx = 0;
-
-        if(view.x > 0) {
-            dx+=10
-            view.scrollToPosition(dx)
-
-        }
-
-    }
-
-
 
 }
+
+
+

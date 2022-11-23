@@ -4,4 +4,9 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="background_image">Background Image</string>
+    <string name="new_collection">New Collection</string>
+    <string name="view_collection">View Collection</string>
+    <string name="pokeball">pokeball</string>
+    <string name="button_shaped_like_a_pokeball">button shaped like a pokeball</string>
+    <string name="button_shaped_like_multiple_pokeballs">button shaped like multiple pokeballs</string>
 </resources>

@@ -6,11 +6,8 @@
     android:layout_height="match_parent"
     tools:context="fragments.HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-
-
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:scaleType="centerCrop"
@@ -20,31 +17,33 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.0"
+        android:contentDescription="@string/pokeball" />
 
     <ImageButton
-        android:id="@+id/simpleImageButton1"
+        android:id="@+id/viewCollectionBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|left"
+        android:layout_gravity="start"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="@color/transparent"
         android:src="@drawable/ball"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView" />
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        android:contentDescription="@string/button_shaped_like_a_pokeball" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/simpleImageButton1"
+        android:layout_below="@id/viewCollectionBtn"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="26dp"
         android:singleLine="true"
-        android:text="View Collection"
+        android:text="@string/view_collection"
         android:textColor="@color/yellow"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -52,30 +51,29 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/simpleImageButton2"
+        android:id="@+id/newCollectionBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_gravity="bottom|right"
+        android:layout_gravity="end"
         android:layout_marginStart="32dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="@color/transparent"
         android:src="@drawable/pokeballs"
-        android:text="New Collection"
-        android:textAllCaps="true"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        android:contentDescription="@string/button_shaped_like_multiple_pokeballs" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/simpleImageButton2"
+        android:layout_below="@id/viewCollectionBtn"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:singleLine="true"
-        android:text="New Collection"
+        android:text="@string/new_collection"
         android:textColor="@color/yellow"
         android:textSize="18sp"
         android:textStyle="bold"
