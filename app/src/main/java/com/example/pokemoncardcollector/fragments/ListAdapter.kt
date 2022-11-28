@@ -11,6 +11,7 @@ import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.entities.Card
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
 
 class ListAdapter(private val cardViewModel: CardViewModel) :
     RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
@@ -36,7 +37,8 @@ class ListAdapter(private val cardViewModel: CardViewModel) :
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = cardList[position]
-        holder.priceText.text = "$ ${currentItem.price}"
+        val decimalFormat = DecimalFormat("0.00")
+        holder.priceText.text = "$ ${decimalFormat.format(currentItem.price)}"
         picasso.load(currentItem.images)
             .into(holder.imageView)
 

@@ -22,7 +22,7 @@ private lateinit var binding: ActivityMainBinding
 //TODO: change the way the api is searched by using card name, set name, and card number
 //TODO: add changeable backgrounds for users background
 //TODO: able to add multiple copies of a card instead of only single cards
-//TODO: Fix the formatting of prices of cards
+//DONE: Fix the formatting of prices of cards
 
 
 class MainActivity : AppCompatActivity() {
@@ -31,7 +31,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
     }
 
 }
