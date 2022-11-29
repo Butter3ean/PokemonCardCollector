@@ -9,4 +9,6 @@
     <string name="pokeball">pokeball</string>
     <string name="button_shaped_like_a_pokeball">button shaped like a pokeball</string>
     <string name="button_shaped_like_multiple_pokeballs">button shaped like multiple pokeballs</string>
+    <string name="a_button_that_takes_the_user_to_the_add_fragment">A button that takes the user to the add fragment</string>
+    <string name="deletes_everything_from_the_database">Deletes everything from the database</string>
 </resources>

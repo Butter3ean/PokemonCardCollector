@@ -9,8 +9,6 @@ import java.net.URI
 class ImageViewModel: ViewModel() {
 
     lateinit var item: Uri
+    lateinit var image: String
 
-    fun selectItem(mItem: Uri) {
-        item = mItem
-    }
 }

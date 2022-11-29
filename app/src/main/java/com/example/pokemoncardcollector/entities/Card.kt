@@ -1,29 +1,37 @@
 package com.example.pokemoncardcollector.entities
 
-import androidx.annotation.NonNull
+import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
 
 //represents a table for cards in the database
+@Parcelize
 @Entity(tableName = "cards")
 data class Card(
 
     @PrimaryKey val id: String,
-    @NonNull @ColumnInfo(name = "card_name") val name: String,
-    @NonNull @ColumnInfo(name = "super_type") val superType: String,
+    @ColumnInfo(name = "card_name") val name: String,
+    @ColumnInfo(name = "super_type") val superType: String,
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "HP") val hp: String?,
     @ColumnInfo(name = "evolves_from") val evolvesFrom: String?,
     @ColumnInfo(name = "converted_retreat_cost") val convertedRetreatCost: Int?,
-    @NonNull @ColumnInfo(name = "set_name") val set: String,
-    @NonNull @ColumnInfo(name = "artist") val artist: String,
-    @NonNull @ColumnInfo(name = "rarity") val rarity: String,
+    @ColumnInfo(name = "set_name") val set: String,
+    @ColumnInfo(name = "artist") val artist: String,
+    @ColumnInfo(name = "rarity") val rarity: String,
     @ColumnInfo(name = "flavor_text") val flavorText: String?,
-    @NonNull @ColumnInfo(name = "image") val images: String,
-    @NonNull @ColumnInfo(name = "price") val price: Double,
-)
+    @ColumnInfo(name = "image") val images: String,
+    @ColumnInfo(name = "price") val price: Double?,
+): Parcelable
 
+
+
+
+
+
+//
     //             @ColumnInfo(name = "national_dex_number") val nationalPokedexNumber: List<Int>,
 //             @ColumnInfo(name = "rule") val rules: List<String>,
 //             @ColumnInfo(name = "retreat_cost") val retreatCost: List<String>,

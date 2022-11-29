@@ -20,12 +20,10 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.fragment.findNavController
 import com.example.pokemoncardcollector.Constants
 import com.example.pokemoncardcollector.Constants.FILENAME_FORMAT
 import com.example.pokemoncardcollector.Constants.REQUEST_CODE_PERMISSIONS
 import com.example.pokemoncardcollector.Constants.REQUIRED_PERMISSIONS
-import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentCameraBinding
 import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 import java.text.SimpleDateFormat
@@ -120,7 +118,7 @@ class CameraFragment : Fragment() {
                     Log.d(Constants.TAG, msg)
                     viewModel.item = output.savedUri!!
 
-                    findNavController().navigate(R.id.action_cameraFragment_to_imageFragment)
+//                    findNavController().navigate(R.id.action_cameraFragment_to_imageFragment)
                 }
             }
         )

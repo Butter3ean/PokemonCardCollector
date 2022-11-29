@@ -9,8 +9,8 @@ import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 private lateinit var binding: ActivityMainBinding
 
 //items that should be added to the application in no necessary order of what should be completed
-//TODO: add confirmation of deleting a card after long pressing
-//TODO: remove delete all button and add delete all into a menu
+//DONE: add confirmation of deleting a card after long pressing
+//DONE: remove delete all button and add delete all into a menu
 //TODO: when clicking on a card, pulls up a full screen of the card with details of the card in a scrollable view
 //TODO: Text recognition to scan cards
 //TODO: Add a page view to how the cards are seen instead of scrolling through all of them
@@ -26,11 +26,18 @@ private lateinit var binding: ActivityMainBinding
 
 
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
     }
+
+
+
+
+
 
 }

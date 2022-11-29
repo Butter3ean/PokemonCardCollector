@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.pokemoncardcollector.retrofitstuff.CardData
 import com.example.pokemoncardcollector.apiclasses.Datum
+import com.example.pokemoncardcollector.retrofitstuff.CardData
 import com.example.pokemoncardcollector.databinding.FragmentAddBinding
 import com.example.pokemoncardcollector.entities.Card
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
@@ -31,6 +32,7 @@ class AddFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+        // Inflate the layout for this fragment
         _binding = FragmentAddBinding.inflate(inflater, container, false)
 
         cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
@@ -38,8 +40,13 @@ class AddFragment : Fragment() {
         // Inflate the layout for this fragment
         binding.addBtn.setOnClickListener {
             val id = binding.etCardId.text.toString()
-            getApiData(id)
+//            val cardName = binding.etCardName.text.toString()
+//            val cardNum = binding.etCardNum.text.toString()
+//            val setName = binding.etSetName.text.toString()
 
+//            getApiData(cardName, cardNum, setName)
+
+            getApiData(id)
         }
 
         return binding.root
@@ -52,8 +59,15 @@ class AddFragment : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
+//        private fun getApiData(cardName: String, cardNum: String, setName: String) {
+//            val retrofit = Retrofit.Builder()
+//                .baseUrl(BaseUrl)
+//                .addConverterFactory(GsonConverterFactory.create())
+//                .build()
+
         val service = retrofit.create(CardData::class.java)
         val call = service.getCardData(id)
+//        val call = service.getCardData(cardName, cardNum, setName)
 
 
         call.enqueue(object : Callback<Datum> {
@@ -92,6 +106,7 @@ class AddFragment : Fragment() {
 
             override fun onFailure(call: Call<Datum>?, t: Throwable?) {
                 if (t != null) {
+                    Toast.makeText(requireContext(), "Unable to add card", Toast.LENGTH_SHORT).show()
                     println(t.message)
                 }
             }
@@ -108,5 +123,6 @@ class AddFragment : Fragment() {
     companion object {
         var BaseUrl = "https://api.pokemontcg.io/"
     }
+
 
 }

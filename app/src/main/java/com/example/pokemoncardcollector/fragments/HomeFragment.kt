@@ -21,6 +21,7 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
+        // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         //all code goes for fragment
         binding.viewCollectionBtn.setOnClickListener {
