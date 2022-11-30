@@ -25,6 +25,7 @@ class CardViewModel(application: Application): AndroidViewModel(application) {
 
     }
 
+
     fun addCard(card: Card) {
         viewModelScope.launch(Dispatchers.IO) {
             repo.addCard(card)

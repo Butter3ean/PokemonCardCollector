@@ -22,8 +22,8 @@
 
     <ImageButton
         android:id="@+id/viewCollectionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="start"

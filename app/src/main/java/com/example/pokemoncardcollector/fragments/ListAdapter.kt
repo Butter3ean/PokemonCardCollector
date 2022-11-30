@@ -1,20 +1,15 @@
 package com.example.pokemoncardcollector.fragments
 
 import android.annotation.SuppressLint
-import android.text.TextUtils.replace
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.replace
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.entities.Card
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
-import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.squareup.picasso.Picasso
 import java.text.DecimalFormat
@@ -48,6 +43,8 @@ class ListAdapter(
         picasso.load(currentItem.images)
             .into(holder.imageView)
 
+        //Long clicking on a card in the recyclerView will ask the user is they want to delete a card,
+        //if confirmed, the card will be deleted from the database
         holder.gridItem.setOnLongClickListener {
             notifyDataSetChanged()
             val snack = Snackbar.make(it, "Delete Card?", Snackbar.LENGTH_LONG)
@@ -58,8 +55,9 @@ class ListAdapter(
             return@setOnLongClickListener true
         }
 
+        //WHen clicking on a card in the recyclerView, it will bring the user to a fragment that shows
+        // a larger picture of the card with more information about the card
         holder.gridItem.setOnClickListener {
-
             val action = ListFragmentDirections.actionListFragmentToInfoFragment(currentItem)
             holder.gridItem.findNavController().navigate(action)
 
@@ -75,7 +73,6 @@ class ListAdapter(
         this.cardList = cards
         notifyDataSetChanged()
     }
-
 
 }
 

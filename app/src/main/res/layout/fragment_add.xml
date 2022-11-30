@@ -6,62 +6,34 @@
     android:layout_height="match_parent"
     tools:context="fragments.AddFragment">
 
-    <EditText
+    <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/et_cardId"
-        android:layout_width="wrap_content"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:ems="10"
+        android:layout_marginTop="32dp"
         android:hint="Card ID"
-        android:inputType="textPersonName"
+        android:textColorHint="@color/white"
+        app:boxStrokeColor="@color/white"
+        app:hintEnabled="true"
+        app:hintTextColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/et_cardName"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="55dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:hint="Card Name"-->
-    <!--        android:inputType="textPersonName"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toTopOf="parent" />-->
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
-    <!--    <EditText-->
-    <!--        android:id="@+id/et_cardNum"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:hint="Card Number"-->
-    <!--        android:inputType="textPersonName"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.497"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/et_cardName" />-->
-
-    <!--    <EditText-->
-    <!--        android:id="@+id/et_setName"-->
-    <!--        android:layout_width="wrap_content"-->
-    <!--        android:layout_height="wrap_content"-->
-    <!--        android:layout_marginTop="16dp"-->
-    <!--        android:ems="10"-->
-    <!--        android:hint="Set Name"-->
-    <!--        android:inputType="textPersonName"-->
-    <!--        app:layout_constraintEnd_toEndOf="parent"-->
-    <!--        app:layout_constraintHorizontal_bias="0.497"-->
-    <!--        app:layout_constraintStart_toStartOf="parent"-->
-    <!--        app:layout_constraintTop_toBottomOf="@+id/et_cardNum" />-->
+    </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:id="@+id/addBtn"
-        android:layout_width="wrap_content"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="45dp"
-        android:text="Add"
+        android:text="Add Card"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_cardId" />

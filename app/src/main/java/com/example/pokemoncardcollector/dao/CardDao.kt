@@ -12,6 +12,12 @@ interface CardDao {
     @Query("SELECT * FROM cards ORDER BY card_name ASC")
     fun getAll(): LiveData<List<Card>>
 
+    @Query("SELECT * FROM cards ORDER BY price ASC")
+    fun getAllByPriceAsc(): LiveData<List<Card>>
+
+    @Query("SELECT * FROM cards ORDER BY price DESC")
+    fun getAllByPriceDesc(): LiveData<List<Card>>
+
     //adds a card to the database
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addCard(card: Card)

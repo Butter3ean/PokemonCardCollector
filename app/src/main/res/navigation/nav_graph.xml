@@ -39,11 +39,6 @@
     </fragment>
 
     <fragment
-        android:id="@+id/cameraFragment"
-        android:name="com.example.pokemoncardcollector.fragments.CameraFragment"
-        android:label="CameraFragment"
-        tools:layout="@layout/fragment_camera" />
-    <fragment
         android:id="@+id/infoFragment"
         android:name="com.example.pokemoncardcollector.fragments.InfoFragment"
         android:label="Card Information"

@@ -9,7 +9,6 @@ import androidx.navigation.fragment.findNavController
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentHomeBinding
 
-
 class HomeFragment : Fragment() {
 
     private var _binding: FragmentHomeBinding? = null
@@ -23,11 +22,13 @@ class HomeFragment : Fragment() {
 
         // Inflate the layout for this fragment
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        //all code goes for fragment
+
+        //Clicking this button will navigate the user to the list fragment
         binding.viewCollectionBtn.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_listFragment2)
         }
 
         return binding.root
     }
+
 }

@@ -1,27 +1,20 @@
 package com.example.pokemoncardcollector.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.*
-import androidx.recyclerview.widget.GridLayoutManager.*
 import com.example.pokemoncardcollector.R
 import com.example.pokemoncardcollector.databinding.FragmentListBinding
 import com.example.pokemoncardcollector.viewmodels.CardViewModel
-import com.example.pokemoncardcollector.viewmodels.ImageViewModel
 import com.google.android.material.snackbar.Snackbar
 
-
 class ListFragment : Fragment() {
+
     private lateinit var cardViewModel: CardViewModel
 
     private var _binding: FragmentListBinding? = null
@@ -32,25 +25,32 @@ class ListFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentListBinding.inflate(inflater, container, false)
         // Inflate the layout for this fragment
+        _binding = FragmentListBinding.inflate(inflater, container, false)
 
         cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
 
+        //Gets the ListAdapter and adds it to the recyclerView
         val adapter = ListAdapter(cardViewModel)
         val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
-        recyclerView.layoutManager =
-            GridLayoutManager(requireContext(), 3, GridLayoutManager.HORIZONTAL, false)
 
+        //Creates the layout for the recyclerView, making it a grid with 3 columns
+        recyclerView.layoutManager =
+            GridLayoutManager(requireContext(), 3, GridLayoutManager.VERTICAL, false)
+
+        //observes data changes to the database and sets the data in the adapter
         cardViewModel.readAll.observe(viewLifecycleOwner) { card ->
             adapter.setData(card)
         }
 
+        //When clicking on the Add Btn, it takes the user to the Add Fragment
         binding.addBtn.setOnClickListener {
             findNavController().navigate(R.id.action_listFragment_to_addFragment)
         }
 
+        //When clicking on the delete btn, a snackbar shows up and asks to confirm the deletion of all cards from the database,
+        //if user selects cards, all cards are removed from the database
         binding.deleteButton.setOnClickListener {
             val snack = Snackbar.make(it, "Delete all Cards?", Snackbar.LENGTH_LONG)
             snack.setAction("Confirm", View.OnClickListener {
@@ -59,12 +59,10 @@ class ListFragment : Fragment() {
             snack.show()
         }
 
-//        binding.cameraBtn.setOnClickListener {
-//            findNavController().navigate(R.id.action_listFragment_to_cameraFragment)
-//        }
-
+        //If the delete and add button are not visible, clicking the menu button will make
+        //the add and delete btns visible or will hide them
         binding.menuButton.setOnClickListener {
-            if(binding.deleteButton.visibility == View.GONE) {
+            if (binding.deleteButton.visibility == View.GONE) {
                 binding.deleteButton.visibility = View.VISIBLE
                 binding.addBtn.visibility = View.VISIBLE
             } else {
@@ -74,13 +72,9 @@ class ListFragment : Fragment() {
 
         }
 
-
-
-
         return binding.root
 
     }
 }
-
 
 
