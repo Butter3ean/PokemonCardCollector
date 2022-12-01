@@ -7,92 +7,133 @@
     android:background="@drawable/pokecardbackground"
     tools:context="fragments.InfoFragment">
 
-    <TextView
-        android:id="@+id/tvCardName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:text="Card Name: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvCardType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Card Type: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCardName" />
-
-    <TextView
-        android:id="@+id/tvHp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="HP: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCardType" />
-
     <ImageView
         android:id="@+id/cardImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvCardPrice"
-        app:layout_constraintVertical_bias="1.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/__hires"
+        />
 
-    <TextView
-        android:id="@+id/tvSetName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Set Name: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHp" />
 
-    <TextView
-        android:id="@+id/tvArtist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Artist: "
-        android:textStyle="bold"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvSetName" />
+    <!--    <ScrollView-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent" >-->
 
-    <TextView
-        android:id="@+id/tvCardPrice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Price: "
-        android:textColor="@color/white"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvArtist" />
+    <!--        <LinearLayout-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="wrap_content"-->
+    <!--            android:orientation="vertical" >-->
+
+    <!--            <LinearLayout-->
+    <!--                android:layout_width="match_parent"-->
+    <!--                android:layout_height="match_parent"-->
+    <!--                android:orientation="vertical" >-->
+
+    <!--                <ImageView-->
+    <!--                    android:id="@+id/cardImage"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginBottom="32dp"-->
+    <!--                    tools:srcCompat="@drawable/__hires"-->
+    <!--                    android:layout_gravity="center"/>-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardName"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Card Name: "-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/white"/>-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardType"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Card Type: "-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/white" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvHp"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="HP: "-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/white" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvSetName"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Set Name: "-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/white" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvArtist"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Artist: "-->
+    <!--                    android:textStyle="bold"-->
+    <!--                    android:textColor="@color/white" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardPrice"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Price: "-->
+    <!--                    android:textColor="@color/white"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardTyping"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Type: "-->
+    <!--                    android:textColor="@color/white"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardRarity"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Rarity: "-->
+    <!--                    android:textColor="@color/white"-->
+    <!--                    android:textStyle="bold" />-->
+
+    <!--                <TextView-->
+    <!--                    android:layout_gravity="center"-->
+    <!--                    android:id="@+id/tvCardFlavText"-->
+    <!--                    android:layout_width="wrap_content"-->
+    <!--                    android:layout_height="wrap_content"-->
+    <!--                    android:layout_marginTop="8dp"-->
+    <!--                    android:text="Flavor Text: "-->
+    <!--                    android:textColor="@color/white"-->
+    <!--                    android:textStyle="bold" />-->
+    <!--                -->
+    <!--            </LinearLayout>-->
+
+    <!--        </LinearLayout>-->
+
+    <!--    </ScrollView>-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

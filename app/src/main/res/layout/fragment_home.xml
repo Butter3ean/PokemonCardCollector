@@ -10,6 +10,7 @@
         android:id="@+id/background"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:contentDescription="@string/pokeball"
         android:scaleType="centerCrop"
         android:src="@drawable/background"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -17,31 +18,30 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        android:contentDescription="@string/pokeball" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <ImageButton
         android:id="@+id/viewCollectionBtn"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="start"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/transparent"
-        android:src="@drawable/ball"
+        android:contentDescription="@string/button_shaped_like_a_pokeball"
+        android:src="@drawable/ic_pokedex"
         app:layout_constraintBottom_toTopOf="@+id/textView"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        android:contentDescription="@string/button_shaped_like_a_pokeball" />
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewCollectionBtn"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="26dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="32dp"
         android:singleLine="true"
         android:text="@string/view_collection"
         android:textColor="@color/yellow"
@@ -51,29 +51,29 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageButton
-        android:id="@+id/newCollectionBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/addToCollectionBtn"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_gravity="end"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="4dp"
+        android:layout_marginBottom="8dp"
         android:backgroundTint="@color/transparent"
-        android:src="@drawable/pokeballs"
+        android:contentDescription="@string/button_shaped_like_multiple_pokeballs"
+        android:src="@drawable/ic_pokeball"
         app:layout_constraintBottom_toTopOf="@+id/textView2"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        android:contentDescription="@string/button_shaped_like_multiple_pokeballs" />
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewCollectionBtn"
-        android:layout_marginEnd="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="32dp"
         android:singleLine="true"
-        android:text="@string/new_collection"
+        android:text="Add to Collection"
         android:textColor="@color/yellow"
         android:textSize="18sp"
         android:textStyle="bold"

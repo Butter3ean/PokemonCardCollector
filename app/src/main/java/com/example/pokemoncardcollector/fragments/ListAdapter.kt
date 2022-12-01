@@ -21,6 +21,7 @@ class ListAdapter(
     private var cardList = emptyList<Card>()
     private val picasso: Picasso = Picasso.get()
 
+    //creates a view holder for the recyclerView with the necessary views
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val priceText: TextView = itemView.findViewById(R.id.tvPrice)
@@ -29,6 +30,7 @@ class ListAdapter(
 
     }
 
+    //creates the view for the recylcerView with the appropriate layout
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         return MyViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.card_row, parent, false)
@@ -37,6 +39,7 @@ class ListAdapter(
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+        //gets the current item in the card list and adds the information needed for the views fields
         val currentItem = cardList[position]
         val decimalFormat = DecimalFormat("0.00")
         holder.priceText.text = "$ ${decimalFormat.format(currentItem.price)}"
@@ -47,7 +50,7 @@ class ListAdapter(
         //if confirmed, the card will be deleted from the database
         holder.gridItem.setOnLongClickListener {
             notifyDataSetChanged()
-            val snack = Snackbar.make(it, "Delete Card?", Snackbar.LENGTH_LONG)
+            val snack = Snackbar.make(it, "Delete ${currentItem.name}?", Snackbar.LENGTH_LONG)
             snack.setAction("Confirm") {
                 cardViewModel.deleteCard(currentItem)
             }
@@ -64,10 +67,12 @@ class ListAdapter(
         }
     }
 
+    //returns the size of all the items in the list
     override fun getItemCount(): Int {
         return cardList.size
     }
 
+    //sets data from the database to the list of cards
     @SuppressLint("NotifyDataSetChanged")
     fun setData(cards: List<Card>) {
         this.cardList = cards

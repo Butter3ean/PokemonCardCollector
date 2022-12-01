@@ -24,6 +24,7 @@ data class Card(
     @ColumnInfo(name = "flavor_text") val flavorText: String?,
     @ColumnInfo(name = "image") val images: String,
     @ColumnInfo(name = "price") val price: Double?,
+    @ColumnInfo(name = "type") val type: String?,
 ): Parcelable
 
 

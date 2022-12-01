@@ -28,6 +28,11 @@ class HomeFragment : Fragment() {
             findNavController().navigate(R.id.action_homeFragment_to_listFragment2)
         }
 
+        binding.addToCollectionBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_homeFragment_to_addFragment)
+
+        }
+
         return binding.root
     }
 

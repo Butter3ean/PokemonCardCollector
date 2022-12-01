@@ -5,7 +5,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ArrayAdapter
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.pokemoncardcollector.R
@@ -25,6 +24,7 @@ class AddFragment : Fragment() {
 
     private lateinit var cardViewModel: CardViewModel
 
+    //View Binding for access to views
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
 
@@ -38,8 +38,9 @@ class AddFragment : Fragment() {
 
         cardViewModel = ViewModelProvider(this)[CardViewModel::class.java]
 
+        //When clicked, the id from the edit text field is passed to retrive the data with that id from the api
         binding.addBtn.setOnClickListener {
-            val id = binding.etCardId.editText.toString()
+            val id = binding.etCardId.editText?.text.toString()
             getApiData(id)
         }
 
@@ -48,6 +49,7 @@ class AddFragment : Fragment() {
     }
 
     private fun getApiData(id: String) {
+        //creates the url for retrofit with a GSON converter to convert JSON objects into data classes
         val retrofit = Retrofit.Builder()
             .baseUrl(BaseUrl)
             .addConverterFactory(GsonConverterFactory.create())
@@ -58,6 +60,7 @@ class AddFragment : Fragment() {
 
         call.enqueue(object : Callback<Datum> {
 
+            //gets the data from the api and adds the needed fields to our card object
             override fun onResponse(call: Call<Datum>?, response: Response<Datum>?) {
                 if (response != null) {
                     if (response.code() == 200) {
@@ -83,8 +86,10 @@ class AddFragment : Fragment() {
                             datum.data.rarity,
                             datum.data.flavorText,
                             datum.data.images.large,
-                            price!!
+                            price!!,
+                            datum.data.types[0]
                         )
+                        //adds that card to the database
                         insertDataToDatabase(card)
                     }
                 }
@@ -99,16 +104,19 @@ class AddFragment : Fragment() {
         })
     }
 
+    //inserts the card into the database
     private fun insertDataToDatabase(card: Card) {
         cardViewModel.addCard(card)
-        makeSnackBar("Card Added!")
-        findNavController().popBackStack()
+        makeSnackBar("${card.name} Added!")
+        findNavController().navigate(R.id.action_addFragment_to_listFragment)
     }
 
+    //holds the url needed for the api
     companion object {
         var BaseUrl = "https://api.pokemontcg.io/"
     }
 
+    //makes a snackbar message with a message passed to it
     fun makeSnackBar(msg: String) {
         val snack = Snackbar.make(binding.root, msg, Snackbar.LENGTH_SHORT)
         snack.show()
