@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import com.example.pokemoncardcollector.databinding.FragmentInfoBinding
 import com.squareup.picasso.Picasso
+import java.text.DecimalFormat
 
 class InfoFragment : Fragment() {
 
@@ -23,33 +24,23 @@ class InfoFragment : Fragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentInfoBinding.inflate(inflater, container, false)
+
+        val decimalFormat = DecimalFormat("0.00")
 
         //Adds all relevent information about a card to the views in the fragment
         picasso.load(args.currentCard.images)
             .into(binding.cardImage)
-//        binding.tvCardName.append(args.currentCard.name)
-//        binding.tvArtist.append(args.currentCard.artist)
-//        val decimalFormat = DecimalFormat("0.00")
-//        binding.tvCardPrice.append("$ ${decimalFormat.format(args.currentCard.price)}")
-//        binding.tvCardType.append(args.currentCard.superType)
-//        binding.tvSetName.append(args.currentCard.set)
-//        binding.tvCardRarity.append(args.currentCard.rarity)
-//
-//        if(args.currentCard.type == null) {
-//            binding.tvCardTyping.visibility = View.GONE
-//        } else {
-//            binding.tvCardTyping.append(args.currentCard.type)
-//        }
-//        if(args.currentCard.flavorText == null) {
-//            binding.tvCardFlavText.visibility = View.GONE
-//        } else {
-//            binding.tvCardFlavText.append(args.currentCard.flavorText)
-//        }
-
-
+        binding.tvCardFlavText.append(args.currentCard.superType)
+        binding.tvArtist.append(args.currentCard.artist)
+        binding.tvSetName.append(args.currentCard.set)
+        binding.tvCardType.append(args.currentCard.type)
+        binding.tvCardPrice.append(decimalFormat.format(args.currentCard.price))
+        binding.tvCardRarity.append(args.currentCard.rarity)
+        binding.tvDexNo.append(args.currentCard.nationalPokedexNumber.toString())
+        binding.tvCardName.append(args.currentCard.name)
 
         return binding.root
     }

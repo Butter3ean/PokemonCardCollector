@@ -4,7 +4,7 @@ import android.os.Parcelable
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 //represents a table for cards in the database
 @Parcelize
@@ -17,7 +17,6 @@ data class Card(
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "HP") val hp: String?,
     @ColumnInfo(name = "evolves_from") val evolvesFrom: String?,
-    @ColumnInfo(name = "converted_retreat_cost") val convertedRetreatCost: Int?,
     @ColumnInfo(name = "set_name") val set: String,
     @ColumnInfo(name = "artist") val artist: String,
     @ColumnInfo(name = "rarity") val rarity: String,
@@ -25,6 +24,7 @@ data class Card(
     @ColumnInfo(name = "image") val images: String,
     @ColumnInfo(name = "price") val price: Double?,
     @ColumnInfo(name = "type") val type: String?,
+    @ColumnInfo(name = "national_dex_number") val nationalPokedexNumber: Int
 ): Parcelable
 
 

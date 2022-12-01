@@ -80,14 +80,14 @@ class AddFragment : Fragment() {
                             datum.data.level,
                             datum.data.hp,
                             datum.data.evolvesFrom,
-                            datum.data.convertedRetreatCost,
                             datum.data.set.name,
                             datum.data.artist,
                             datum.data.rarity,
                             datum.data.flavorText,
                             datum.data.images.large,
                             price!!,
-                            datum.data.types[0]
+                            datum.data.types[0],
+                            datum.data.nationalPokedexNumbers[0]
                         )
                         //adds that card to the database
                         insertDataToDatabase(card)
