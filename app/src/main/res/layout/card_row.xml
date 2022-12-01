@@ -9,7 +9,7 @@
 
     <ImageView
         android:id="@+id/cardImage"
-        android:layout_width="125dp"
+        android:layout_width="115dp"
         android:layout_height="180dp"
         tools:srcCompat="@tools:sample/avatars" />
 

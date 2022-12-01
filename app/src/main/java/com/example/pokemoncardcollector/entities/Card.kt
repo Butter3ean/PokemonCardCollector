@@ -28,15 +28,3 @@ data class Card(
 ): Parcelable
 
 
-
-
-
-
-//
-    //             @ColumnInfo(name = "national_dex_number") val nationalPokedexNumber: List<Int>,
-//             @ColumnInfo(name = "rule") val rules: List<String>,
-//             @ColumnInfo(name = "retreat_cost") val retreatCost: List<String>,
-//    @NonNull @ColumnInfo(name = "type") val types: List<String>,
-//    @NonNull @ColumnInfo(name = "sub_type") val subType: List<String>,
-
-

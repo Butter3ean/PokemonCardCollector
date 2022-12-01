@@ -33,14 +33,14 @@ class InfoFragment : Fragment() {
         //Adds all relevent information about a card to the views in the fragment
         picasso.load(args.currentCard.images)
             .into(binding.cardImage)
-        binding.tvCardFlavText.append(args.currentCard.superType)
-        binding.tvArtist.append(args.currentCard.artist)
-        binding.tvSetName.append(args.currentCard.set)
-        binding.tvCardType.append(args.currentCard.type)
-        binding.tvCardPrice.append(decimalFormat.format(args.currentCard.price))
-        binding.tvCardRarity.append(args.currentCard.rarity)
-        binding.tvDexNo.append(args.currentCard.nationalPokedexNumber.toString())
-        binding.tvCardName.append(args.currentCard.name)
+        binding.tvCardFlavText.append(" " + args.currentCard.superType)
+        binding.tvArtist.append(" " + args.currentCard.artist)
+        binding.tvSetName.append(" " + args.currentCard.set)
+        binding.tvCardType.append(" " + args.currentCard.type)
+        binding.tvCardPrice.append(" $" + decimalFormat.format(args.currentCard.price))
+        binding.tvCardRarity.append(" " + args.currentCard.rarity)
+        binding.tvDexNo.append(" " + args.currentCard.nationalPokedexNumber.toString())
+        binding.tvCardName.append(" " + args.currentCard.name)
 
         return binding.root
     }

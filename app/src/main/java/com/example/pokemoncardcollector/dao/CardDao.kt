@@ -19,7 +19,7 @@ interface CardDao {
     fun getAllByPriceDesc(): LiveData<List<Card>>
 
     //adds a card to the database
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun addCard(card: Card)
 
     //deletes a single card from the database

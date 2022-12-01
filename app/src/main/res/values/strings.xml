@@ -11,14 +11,15 @@
     <string name="button_shaped_like_multiple_pokeballs">button shaped like multiple pokeballs</string>
     <string name="a_button_that_takes_the_user_to_the_add_fragment">A button that takes the user to the add fragment</string>
     <string name="deletes_everything_from_the_database">Deletes everything from the database</string>
-    <string name="card_name">Card Name:</string>
-    <string name="type">Type:</string>
-    <string name="national_dex_no">National Dex No:</string>
-    <string name="set_name">Set Name:</string>
-    <string name="artist">Artist:</string>
-    <string name="price">Price:</string>
-    <string name="rarity">Rarity:</string>
-    <string name="card_type">Card Type:</string>
+    <string name="card_name">Card Name: </string>
+    <string name="type">Type: </string>
+    <string name="national_dex_no">National Dex No: </string>
+    <string name="set_name">Set Name: </string>
+    <string name="artist">Artist: </string>
+    <string name="price">Price: </string>
+    <string name="rarity">Rarity: </string>
+    <string name="card_type">Card Type: </string>
     <string name="image_of_pokemon_card">Image of Pokemon Card</string>
+    <string name="card_id">Card ID</string>
 
 </resources>
